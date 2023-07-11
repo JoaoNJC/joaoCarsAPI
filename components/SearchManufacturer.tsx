@@ -14,11 +14,12 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
   const filteredManufacturers =
     query === ""
       ? manufacturers
-      : manufacturers.filter((item) => (
-        item.toLowerCase()
+      : manufacturers.filter((item) =>
+        item
+          .toLowerCase()
           .replace(/\s+/g, "")
           .includes(query.toLowerCase().replace(/\s+/g, ""))
-      ))
+      );
 
 
   return (
@@ -61,7 +62,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
                   value={query}
                   className='search-manufacturer__option'
                 >
-                  Create "{query}"
+                  Create &quot;{query}&quot;
                 </Combobox.Option>
               ) : (
                 filteredManufacturers.map((item) => (
